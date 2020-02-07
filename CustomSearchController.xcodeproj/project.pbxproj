@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1B4BF823EC422000287C87 /* FilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1B4BF623EC422000287C87 /* FilterItemView.swift */; };
 		9E51459423E18CCB0056613E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51459323E18CCB0056613E /* AppDelegate.swift */; };
 		9E51459623E18CCB0056613E /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51459523E18CCB0056613E /* ListController.swift */; };
 		9E51459923E18CCB0056613E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E51459723E18CCB0056613E /* Main.storyboard */; };
@@ -16,10 +17,10 @@
 		9E52C2F923E860B2002F216A /* FilterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52C2F823E860B2002F216A /* FilterScrollView.swift */; };
 		9E52C2FB23E860C1002F216A /* FilterScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E52C2FA23E860C1002F216A /* FilterScrollView.xib */; };
 		9EE19B8323E98DF20077446B /* FilterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE19B8223E98DF20077446B /* FilterItemView.swift */; };
-		9EE19B8523E98DFC0077446B /* FilterItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE19B8423E98DFC0077446B /* FilterItemView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1B4BF623EC422000287C87 /* FilterItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterItemView.swift; sourceTree = "<group>"; };
 		9E51459023E18CCB0056613E /* CustomSearchController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSearchController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E51459323E18CCB0056613E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E51459523E18CCB0056613E /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		9E52C2F823E860B2002F216A /* FilterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterScrollView.swift; sourceTree = "<group>"; };
 		9E52C2FA23E860C1002F216A /* FilterScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterScrollView.xib; sourceTree = "<group>"; };
 		9EE19B8223E98DF20077446B /* FilterItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItemView.swift; sourceTree = "<group>"; };
-		9EE19B8423E98DFC0077446B /* FilterItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterItemView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 				9E52C2F823E860B2002F216A /* FilterScrollView.swift */,
 				9E52C2FA23E860C1002F216A /* FilterScrollView.xib */,
 				9EE19B8223E98DF20077446B /* FilterItemView.swift */,
-				9EE19B8423E98DFC0077446B /* FilterItemView.xib */,
+				9E1B4BF623EC422000287C87 /* FilterItemView.swift */,
 			);
 			path = CustomSearchController;
 			sourceTree = "<group>";
@@ -137,7 +137,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE19B8523E98DFC0077446B /* FilterItemView.xib in Resources */,
 				9E51459E23E18CCD0056613E /* LaunchScreen.storyboard in Resources */,
 				9E52C2FB23E860C1002F216A /* FilterScrollView.xib in Resources */,
 				9E51459B23E18CCD0056613E /* Assets.xcassets in Resources */,
@@ -153,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EE19B8323E98DF20077446B /* FilterItemView.swift in Sources */,
+				9E1B4BF823EC422000287C87 /* FilterItemView.swift in Sources */,
 				9E5145A623E190E70056613E /* SearchControllerViewController.swift in Sources */,
 				9E52C2F923E860B2002F216A /* FilterScrollView.swift in Sources */,
 				9E51459623E18CCB0056613E /* ListController.swift in Sources */,

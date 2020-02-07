@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ListController : UITableViewController {
+class ListController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var filterHeightConstraint:NSLayoutConstraint!
+    @IBOutlet weak var filterView:UIView!
     
     var searchViewController:UIViewController?
     var searchController:UISearchController?
@@ -21,19 +25,6 @@ class ListController : UITableViewController {
         self.title = "List"
         searchViewController = getSearchController()
         searchController = UISearchController(searchResultsController: searchViewController)
-        
-//        let height = searchController?.searchBar.frame.height ?? 40
-//        let rect = CGRect(x: 0, y:height, width: 100, height: 30)
-//        if let bar = searchController?.searchBar {
-//            let customView = UIView.init(frame: rect)
-//            customView.backgroundColor = .red
-//            customView.translatesAutoresizingMaskIntoConstraints = false
-//            searchController?.searchBar.addSubview(customView)
-//            customView.topAnchor.constraint(equalTo: bar.topAnchor,constant: 20).isActive = true
-//            customView.bottomAnchor.constraint(equalTo: bar.bottomAnchor).isActive = true
-//            customView.leftAnchor.constraint(equalTo: bar.leftAnchor).isActive = true
-//            customView.rightAnchor.constraint(equalTo: bar.rightAnchor).isActive = true
-//        }
         setupSearchController()
     }
     
@@ -58,34 +49,15 @@ class ListController : UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let data = tableData[indexPath.row]
         cell.textLabel?.text = "\(data)"
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if isSearching {
-            let rect = CGRect(x: 0, y: 0, width: 50, height: 40)
-            let xib = FilterScrollView.getXIB()
-            xib.frame = rect
-            return xib
-        }
-        
-        return nil
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if  isSearching {
-            return 40
-        }
-        
-        return 0
     }
     
     func getSearchController() -> UIViewController {
@@ -125,22 +97,41 @@ extension ListController : UISearchBarDelegate, UISearchResultsUpdating {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         didEndEditing = false
         isSearching = true
-        self.tableView.reloadData()
+//        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+//
+//        }, completion: {
+//            self.filterHeightConstraint.constant = 50
+//            self.filterView.layoutIfNeeded()
+//        })
+        self.filterHeightConstraint.constant = 50
+        self.filterView.alpha = 1
+        UIView.animate(withDuration: 0.1, delay: 0.1, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+            self.filterView.layoutIfNeeded()
+        }) { (completed) in
+            if completed {
+//            self.tableView.reloadData()
+            }
+        }
+        
+        
+        
 
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         didEndEditing = true
         isSearching = false
-        
- 
-        self.tableView.tableHeaderView = nil
-        tableView.beginUpdates()
-        UIView.animate(withDuration: 0.4) {
-            self.tableView.tableHeaderView?.frame.size.height = 0
-            self.tableView.tableHeaderView?.layoutIfNeeded()
+        self.filterHeightConstraint.constant = 0
+        self.filterView.alpha = 0
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+            self.filterView.layoutIfNeeded()
+        }) { (completed) in
+            if completed {
+//                self.tableView.reloadData()
+            }
         }
-        tableView.endUpdates()
         
     }
     
@@ -148,3 +139,4 @@ extension ListController : UISearchBarDelegate, UISearchResultsUpdating {
     
     
 }
+
